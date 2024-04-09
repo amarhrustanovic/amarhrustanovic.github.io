@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tjek opgave</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Indtast din opgave</h1>
+        <textarea id="task_text" rows="5" cols="50"></textarea><br>
+        <button onclick="checkTask()">Tjek opgave</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkTask() {
+            var taskText = document.getElementById('task_text').value;
+
+            // Simuler generering af tekst fra ChatGPT
+            var generatedText = simulateGPTResponse(taskText);
+
+            // Sammenlign genereret tekst med brugerinput
+            var resultElement = document.getElementById('result');
+            if (generatedText.trim() === taskText.trim()) {
+                resultElement.innerText = "Det ser ud til, at teksten er genereret af et menneske.";
+            } else {
+                resultElement.innerText = "Det ser ud til, at teksten er genereret af en AI-model, som ChatGPT.";
+            }
+        }
+
+        function simulateGPTResponse(prompt) {
+            // Dette er en simpel simulering af, hvordan ChatGPT kunne generere tekst
+            var generatedText = prompt + " (Dette er et eksempel på genereret tekst fra ChatGPT)";
+            return generatedText;
+        }
+    </script>
+</body>
+</html>
